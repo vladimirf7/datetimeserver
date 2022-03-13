@@ -13,11 +13,13 @@ def start_server(port = 8000):
         print(f'received message: {data}')
         if data.decode() == 'datetime':
             sock.sendto(datetime.now(timezone.utc).isoformat().encode(), addr)
-        if data.decode() == 'date':
+        elif data.decode() == 'date':
             sock.sendto(datetime.now(timezone.utc).strftime('%Y-%m-%d').encode(), addr)
-        if data.decode() == 'time':
-            # import pdb; pdb.set_trace()
+        elif data.decode() == 'time':
             sock.sendto(datetime.now(timezone.utc).strftime('%H:%M:%S %Z').encode(), addr)
+        else:
+            sock.sendto('Unknown request'.encode(), addr)
+
 
 
 if __name__ == "__main__":
