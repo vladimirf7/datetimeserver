@@ -12,8 +12,8 @@ PORT is optional for all scripts, defaults to 8000
 2. Start UDP client: `python client_udp.py PORT` It will make 3 requests to the server and output the replies
 
 ### TCP Server
-1. Start TCP server: `python server_tcp_.py PORT`
-2. Start TCP client: `python client_tcp_.py PORT` It will make 3 requests to the server and output the replies
+1. Start TCP server: `python server_tcp.py PORT`
+2. Start TCP client: `python client_tcp.py PORT` It will make 3 requests to the server and output the replies
 
 ## Things to improve
 - Add virtual env
