@@ -2,7 +2,7 @@ import socket
 import sys
 
 
-def send_udp_request(message, ip = '127.0.0.1', port = 8000):
+def send_udp_request(message, port = 8000, ip = '127.0.0.1'):
     print(f'Sending "{message}" to {ip}:{port}')
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.settimeout(5)
@@ -12,10 +12,10 @@ def send_udp_request(message, ip = '127.0.0.1', port = 8000):
 
 
 if __name__ == '__main__':
-    '''argv[1] - message
-    argv[2] - optional port
-    '''
-    if len(sys.argv) > 2 and int(sys.argv[2]):
-        send_udp_request(sys.argv[1], int(sys.argv[2]))
+    if len(sys.argv) > 1 and int(sys.argv[1]):
+        port = int(sys.argv[1])
     else:
-        send_udp_request(sys.argv[1])
+        port = 8000
+    for req in ['date', 'time', 'datetime']:
+        send_udp_request(req, port)
+        print()

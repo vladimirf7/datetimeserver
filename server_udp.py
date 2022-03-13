@@ -21,7 +21,6 @@ def start_server(port = 8000):
             sock.sendto('Unknown request'.encode(), addr)
 
 
-
 if __name__ == "__main__":
     if len(sys.argv) > 1 and int(sys.argv[1]):
         start_server(int(sys.argv[1]))
